@@ -17,6 +17,8 @@ font-family: 'wide-bold';
 src: url('ReservationWideBold.ttf') format('truetype');}
 
 body {
+    height: 100vh;   /* fallback */
+    height: 100dvh;  /* modern fix */
     margin: 0;
     background: var(--main-color);
 }
