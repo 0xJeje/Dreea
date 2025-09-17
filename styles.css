@@ -61,7 +61,7 @@ header {
 /* ######## Swiper styles ######## */
 /* ######## Swiper styles ######## */
     .swiper {
-        height: 90%;
+        height: 87%;
         width: 100%;
         position: relative;
     }
@@ -133,7 +133,7 @@ header {
     position: relative;
     display: inline-flex;
     width: 100%;
-    height: 4%;
+    height: 6%;
     cursor: pointer; /* Pointer/hand icon */
   float: left; /* Float the buttons side by side */
 }
@@ -180,7 +180,7 @@ header {
     list-style-image: none;
     margin: 0 auto;
     width: 90%;
-    height: 6%;
+    height: 7%;
 }
 
 ul {
