@@ -19,6 +19,8 @@ src: url('ReservationWideBold.ttf') format('truetype');}
 body {
     height: 100vh;   /* fallback */
     height: 100dvh;  /* modern fix */
+    width: 100vw;
+    width: 100dvw;
     margin: 0;
     background: var(--main-color);
 }
@@ -28,7 +30,7 @@ header {
     position: absolute;
         right: 0;
         top: 0;
-    height: 15vh;
+    height: 15%;
     width: 100%;
     text-align: center;
     display: flex;
@@ -68,8 +70,8 @@ header {
 /* ######## Swiper styles ######## */
 /* ######## Swiper styles ######## */
     .swiper {
-        height: 90vh;
-        width: 100vw;
+        height: 90%;
+        width: 100%;
     }
 
 #myVideo {
@@ -205,63 +207,3 @@ li {
     height: 25px;
     filter: invert(0);
 }
-
-/* ######## Styles for PC screens ######## */
-/* ######## Styles for PC screens ######## */
-/* ######## Styles for PC screens ######## */
-@media screen and (min-width: 768px) {
-    .page {
-        height: 90vh;
-        background-image: url(background-widel.jpg);
-            background-size: cover;
-                background-position-x: left;
-                background-position-y: bottom;
-    }
-
-    .header {
-        position: absolute;
-        right: 0;
-        width: 50%;
-        bottom: 50%;
-        text-align: center;
-    }
-
-    .text-logo {
-        font-family: 'wide-bold', sans-serif;
-            color: var(--main-color); 
-            font-size: 8vw;
-            text-transform: uppercase;
-            text-decoration: none;
-            font-style: normal;
-            letter-spacing: 5px;
-    }
-
-    .latest-single-text {
-        display: none;
-    }
-
-    .footer-social-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        list-style-type: none;
-        list-style-image: none;
-        margin: 0 auto;
-        width: 90%;
-        height: 6vh;
-    }
-    
-    ul {
-        padding-inline-start: 0;
-        margin-bottom: 0;
-    }
-    
-    li {
-        margin-top: 15px;
-        margin-bottom: 10px;
-    }
-    
-    .footer-social-wrap img {
-        width: auto;
-        height: 23px;
-        filter: invert(0);}}
