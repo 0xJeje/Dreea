@@ -29,14 +29,14 @@
       <!-- Slide 2 -->
       <div class="swiper-slide" data-main-color="#dbdada" data-secondary-color="#1A1A1A">
         <div class="slide-content">
-          <video autoplay muted loop id="myVideo"><source src="Backgrounds/Scuze.mp4" type="video/mp4"></video>
+          <video autoplay muted loop playsinline preload="metadata" id="myVideo"><source src="Backgrounds/Scuze.mp4" type="video/mp4"></video>
         </div>
       </div>
 
       <!-- Slide 3 -->
       <div class="swiper-slide" data-main-color="#dbdada" data-secondary-color="#1A1A1A">
         <div class="slide-content">
-          <video autoplay muted loop id="myVideo"><source src="Backgrounds/Ceau Bau.mp4" type="video/mp4"></video>
+          <video autoplay muted loop preload="metadata" id="myVideo"><source src="Backgrounds/Ceau Bau.mp4" type="video/mp4"></video>
         </div>
       </div>
 
@@ -224,6 +224,12 @@ const logoImg = document.querySelector('.logo img');
     updateButtons(0);
     updateLogoInvert(0);
   });
+
+  swiper.on('slideChange', () => {
+  document.querySelectorAll('video').forEach(v => v.pause());
+  const activeVideo = swiper.slides[swiper.activeIndex].querySelector('video');
+  if (activeVideo) activeVideo.play();
+});
 </script>
 </body>
 </html>
