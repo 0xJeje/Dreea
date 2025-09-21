@@ -32,7 +32,7 @@
       <!-- Slide 1 -->
       <div class="swiper-slide" data-main-color="#dbdada" data-secondary-color="#1A1A1A">
         <div class="slide-content">
-          <video autoplay muted loop id="myVideo" preload="auto" aria-hidden="true" poster="Backgrounds/Muzica populara.jpg">
+          <video class="bg-video" preload="auto" autoplay muted loop aria-hidden="true" poster="Backgrounds/Muzica populara.jpg" playsinline>
             <source src="Backgrounds/Muzica populara.webm" type="video/webm">
             <source src="Backgrounds/Muzica populara.mp4" type="video/mp4">
         </video>
@@ -42,9 +42,9 @@
       <!-- Slide 2 -->
       <div class="swiper-slide" data-main-color="#dbdada" data-secondary-color="#1A1A1A">
         <div class="slide-content">
-          <video autoplay muted loop playsinline preload="metadata" id="myVideo" aria-hidden="true" poster="Backgrounds/Scuze.jpg">
-          <source src="Backgrounds/Scuze.webm" type="video/webm">
-          <source src="Backgrounds/Scuze.mp4" type="video/mp4">
+          <video class="bg-video" preload="metadata" autoplay muted loop aria-hidden="true" poster="Backgrounds/Scuze.jpg" playsinline>
+          <source data-src="Backgrounds/Scuze.webm" type="video/webm">
+          <source data-src="Backgrounds/Scuze.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -52,9 +52,9 @@
       <!-- Slide 3 -->
       <div class="swiper-slide" data-main-color="#dbdada" data-secondary-color="#1A1A1A">
         <div class="slide-content">
-          <video autoplay muted loop preload="metadata" id="myVideo" aria-hidden="true" poster="Backgrounds/Ceau Bau.png">
-          <source src="Backgrounds/Ceau Bau.webm" type="video/webm">
-          <source src="Backgrounds/Ceau Bau.mp4" type="video/mp4">
+          <video class="bg-video" preload="metadata" autoplay muted loop aria-hidden="true" poster="Backgrounds/Ceau Bau.png" playsinline>
+          <source data-src="Backgrounds/Ceau Bau.webm" type="video/webm">
+          <source data-src="Backgrounds/Ceau Bau.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -158,7 +158,7 @@ function updateButtons(index) {
     playIcon.style.display = '';
     pauseIcon.style.display = 'none';
 
-    playBtn.addEventListener('click', function() {
+    playBtn.onclick = () => {
       swiper.autoplay.stop();
       if (audio.paused) {
         audio.play();
@@ -169,7 +169,7 @@ function updateButtons(index) {
         playIcon.style.display = '';
         pauseIcon.style.display = 'none';
       }
-    });
+    };
 
     // When audio ends, reset button to play state
     audio.onended = function() {
@@ -210,25 +210,6 @@ function updateLogoInvert(index) {
     el: '.swiper-pagination',
     clickable: true,
   },
-on: {
-  slideChange: function () {
-    const realIndex = this.realIndex;
-    const activeSlide = this.slides[this.activeIndex];
-    const mainColor = activeSlide.getAttribute('data-main-color') || '#dbdada';
-    const secondaryColor = activeSlide.getAttribute('data-secondary-color') || '#000';
-    document.documentElement.style.setProperty('--main-color', mainColor);
-    document.documentElement.style.setProperty('--secondary-color', secondaryColor);
-    updateButtons(realIndex);
-
-const logoImg = document.querySelector('.logo img');
-    if (logoImg) {
-      logoImg.classList.remove('animate');
-      void logoImg.offsetWidth;
-      logoImg.classList.add('animate');
-    }
-    updateLogoInvert(realIndex); // <-- Add this line
-  }
-}
   });
 
 
@@ -243,11 +224,56 @@ const logoImg = document.querySelector('.logo img');
     updateLogoInvert(0);
   });
 
-  swiper.on('slideChange', () => {
-  document.querySelectorAll('video').forEach(v => v.pause());
-  const activeVideo = swiper.slides[swiper.activeIndex].querySelector('video');
-  if (activeVideo) activeVideo.play();
+function loadVideoIfNeeded(slide) {
+  const video = slide.querySelector('.bg-video');
+  if (!video) return;
+
+  const source = video.querySelector('source[data-src]');
+  if (source && !source.src) {
+    source.src = source.dataset.src;
+    video.load();
+  }
+}
+
+swiper.on('slideChange', function () {
+  const realIndex = this.realIndex;
+  const activeSlide = this.slides[this.activeIndex];
+
+  // --- 1. Update theme colors ---
+  const mainColor = activeSlide.getAttribute('data-main-color') || '#dbdada';
+  const secondaryColor = activeSlide.getAttribute('data-secondary-color') || '#000';
+  document.documentElement.style.setProperty('--main-color', mainColor);
+  document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+
+  // --- 2. Update buttons ---
+  updateButtons(realIndex);
+
+  // --- 3. Logo animation + invert ---
+  const logoImg = document.querySelector('.logo img');
+  if (logoImg) {
+    logoImg.classList.remove('animate');
+    void logoImg.offsetWidth; // restart CSS animation
+    logoImg.classList.add('animate');
+    if ([2, 3, 4].includes(realIndex)) {
+      logoImg.classList.add('invert-logo');
+    } else {
+      logoImg.classList.remove('invert-logo');
+    }
+  }
+
+  // --- 4. Video control ---
+  document.querySelectorAll('.bg-video').forEach(v => v.pause());
+  const activeVideo = activeSlide.querySelector('.bg-video');
+  if (activeVideo) {
+    loadVideoIfNeeded(activeSlide);
+    activeVideo.play().catch(() => {});
+  }
+
+  // --- 5. Preload next slide video ---
+  const nextIndex = (this.activeIndex + 1) % this.slides.length;
+  loadVideoIfNeeded(this.slides[nextIndex]);
 });
+
 </script>
 </body>
 </html>
