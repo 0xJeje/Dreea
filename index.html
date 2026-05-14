@@ -1,275 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Dreea | Official Website</title>
   <meta name="title" content="Dreea | Official Website">
   <meta name="description" content="Discover Dreea, a rising music artist and actress from Romania. Explore her latest songs, videos, and projects blending modern rhythms with Romanian influences.">
 
-  <!-- Open Graph / Facebook / Instagram -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://dreea.art/">
   <meta property="og:title" content="Dreea | Official Website">
-  <meta property="og:description" content="Discover Dreea, a rising music artist and actress from Romania. Explore her latest songs, videos, and projects blending modern rhythms with Romanian influences.">
-  <meta property="og:image" content="logo.png">
+  <meta property="og:description" content="Discover Dreea, a rising music artist and actress from Romania.">
+  <meta property="og:image" content="assets/logo.png">
 
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/x-icon" href="logo.ico">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico"> <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <link rel="stylesheet" href="css/styles.css"> </head>
 
 <body>
-  <header id="header" class="header">
-    <a href="https://dreea.art" class="logo">
-      <img src="logo.png" alt="Dreea Logo">
-    </a>
-  </header>
-  <!-- Swiper Container -->
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <!-- Slide 1 -->
-      <div class="swiper-slide" data-main-color="#dbdada" data-secondary-color="#1A1A1A">
-        <div class="slide-content">
-          <video class="bg-video" preload="metadata" autoplay muted loop aria-hidden="true" poster="Backgrounds/Muzica populara.jpg" playsinline>
-            <source src="Backgrounds/Muzica populara.mp4" type="video/mp4">
-            <source src="Backgrounds/Muzica populara.webm" type="video/webm">
-        </video>
-        </div>
-      </div>
+  <div id="app-container">
+    <header id="header" class="header">
+      <a href="https://dreea.art" class="logo" aria-label="Go to Dreea Homepage">
+        <img src="assets/logo.webp" alt="Dreea Logo"> </a>
+    </header>
 
-      <!-- Slide 2 -->
-      <div class="swiper-slide" data-main-color="#dbdada" data-secondary-color="#1A1A1A">
-        <div class="slide-content">
-          <video class="bg-video" preload="metadata" autoplay muted loop aria-hidden="true" poster="Backgrounds/Scuze.jpg" playsinline>
-          <source data-src="Backgrounds/Scuze.webm" type="video/webm">
-          <source data-src="Backgrounds/Scuze.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+    <div class="swiper">
+      <div class="swiper-wrapper" id="dynamic-swiper-wrapper">
+         </div>
+      <div class="swiper-pagination"></div>
+    </div>
 
-      <!-- Slide 3 -->
-      <div class="swiper-slide" data-main-color="#dbdada" data-secondary-color="#1A1A1A">
-        <div class="slide-content">
-          <video class="bg-video" preload="metadata" autoplay muted loop aria-hidden="true" poster="Backgrounds/Ceau Bau.png" playsinline>
-          <source data-src="Backgrounds/Ceau Bau.webm" type="video/webm">
-          <source data-src="Backgrounds/Ceau Bau.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+    <div class="buttons-part" id="static-buttons"></div> 
 
-      <!-- Slide 4 -->
-      <div class="swiper-slide" >
-        <div class="slide-content" style="background-image: url('Backgrounds/mantelegi.jpg')"></div>
+    <ul class="footer-social-wrap">
+      <li><a target="_blank" href="https://www.facebook.com/profile.php?id=61556838633655" aria-label="Facebook"><img src="assets/icons/facebook-f.svg" class="social-button" alt="" aria-hidden="true"></a></li>
+      <li><a target="_blank" href="https://music.apple.com/us/artist/dreea/1615971611" aria-label="Apple Music"><img src="assets/icons/apple.svg" class="social-button" alt="" aria-hidden="true"></a></li>
+      <li><a target="_blank" href="https://open.spotify.com/artist/0bX3umQnEcqtzLE51yMUvf" aria-label="Spotify"><img src="assets/icons/spotify.svg" class="social-button" alt="" aria-hidden="true"></a></li>
+      <li><a target="_blank" href="https://www.instagram.com/dreea.mp3/" aria-label="Instagram"><img src="assets/icons/instagram.svg" class="social-button" alt="" aria-hidden="true"></a></li> <li><a target="_blank" href="https://www.tiktok.com/@dreea.mp3" aria-label="TikTok"><img src="assets/icons/tiktok.svg" class="social-button" alt="" aria-hidden="true"></a></li>
+    </ul>
 
-      </div>
+    <audio id="slide-audio" style="display:none;"></audio>
+  </div>
 
-      <!-- Slide 5 -->
-      <div class="swiper-slide" >
-        <div class="slide-content" style="background-image: url('Backgrounds/dph-vertical.jpg')"></div>
-      </div> </div> </div>
- 
-    <div class="swiper-pagination"></div>
-
-<div class="buttons-part" id="static-buttons"></div> 
-
-
-        <ul class="footer-social-wrap">
-            <li><a target="_blank" href="https://www.facebook.com/profile.php?id=61556838633655"><img src="icons/facebook-f.svg" class="social-button icon-facebook" alt="facebook"></a></li>
-            <li><a target="_blank" href="https://music.apple.com/us/artist/dreea/1615971611"><img src="icons/apple.svg" class="social-button icon-apple" alt="Apple Music"></a></li>
-            <li><a target="_blank" href="https://open.spotify.com/artist/0bX3umQnEcqtzLE51yMUvf"><img src="icons/spotify.svg" class="social-button icon-spotify" alt="Spotify"></a></li>
-            <li><a target="_blank" href="https://www.instagram.com/dreea.mp3/"><img src="icons/instagram.png" class="social-button icon-instagram" alt="Instagram"></a></li>
-            <li><a target="_blank" href="https://www.tiktok.com/@dreea.mp3"><img src="icons/tiktok.svg" class="social-button icon-tiktok" alt="TikTok"></a></li>
-        </div>
-
-
-<audio id="slide-audio" style="display:none;"></audio>
-
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-  // Button data for each slide (in order)
-  const buttonData = [
-    {
-      video: "https://www.youtube.com/watch?v=8gjnvh8ExPo&list=PLbZn4O68h1F34fqdi0lPfZBukdtjENZnx",
-      listen: "https://orcd.co/muzicapopulara",
-      play: "Music/Dreea - Muzica Populara.mp3"
-    },
-    {
-      video: "https://www.youtube.com/watch?v=X4wvbntnDfI&list=PLbZn4O68h1F34fqdi0lPfZBukdtjENZnx&index=2",
-      listen: "https://orcd.co/scuze",
-      play: "Music/Dreea - Scuze.mp3"
-    },
-    {
-      video: "https://www.youtube.com/watch?v=ihxxiyqWfNY&list=PLbZn4O68h1F34fqdi0lPfZBukdtjENZnx&index=3",
-      listen: "https://orcd.co/ceaubau",
-      play: "Music/Dreea - Ceau Bau.mp3"
-    },
-    {
-      video: "https://www.youtube.com/watch?v=uRtGYW9ws-8&list=PLbZn4O68h1F34fqdi0lPfZBukdtjENZnx&index=4",
-      listen: "https://orcd.co/ma-ntelegi",
-      play: "Music/Dreea X Bruja - Ma-ntelegi.mp3"
-    },
-    {
-      video: "https://www.youtube.com/watch?v=R9mutf7KxUg&list=PLbZn4O68h1F34fqdi0lPfZBukdtjENZnx&index=5",
-      listen: "https://bfan.link/drama-pe-hartie",
-      play: "Music/Dreea - Drama pe hartie.mp3"
-    }
-  ];
-
-function updateButtons(index) {
-  const data = buttonData[index % buttonData.length];
-  if (data.video || data.listen || data.play) {
-    document.getElementById('static-buttons').innerHTML = `
-      <a target="_blank" href="${data.video}" class="CTA-button"><img src="icons/youtube.svg" height="50%" alt="Youtube">Vezi videoclip</a>
-      <a target="_blank" href="${data.listen}" class="CTA-button">Ascultă acum</a>
-      <button type="button" class="CTA-button play-button" id="play-audio-btn" aria-label="Play">
-        <span id="play-icon">
-          <svg height="100%" viewBox="0 0 28 28" fill="none">
-            <polygon points="11,9 20,14 11,19" fill="currentColor"/>
-          </svg>
-        </span>
-        <span id="pause-icon" style="display:none;">
-          <svg height="100%" viewBox="0 0 28 28" fill="none">
-            <rect x="11" y="9" width="2.5" height="10" fill="currentColor"/>
-            <rect x="15" y="9" width="2.5" height="10" fill="currentColor"/>
-          </svg>
-        </span>
-      </button>
-    `;
-
-    const playBtn = document.getElementById('play-audio-btn');
-    const audio = document.getElementById('slide-audio');
-    const playIcon = document.getElementById('play-icon');
-    const pauseIcon = document.getElementById('pause-icon');
-
-    // Always set the correct audio source for the slide
-    audio.src = data.play;
-    audio.pause();
-    playIcon.style.display = '';
-    pauseIcon.style.display = 'none';
-
-    playBtn.onclick = () => {
-      swiper.autoplay.stop();
-      if (audio.paused) {
-        audio.play();
-        playIcon.style.display = 'none';
-        pauseIcon.style.display = '';
-      } else {
-        audio.pause();
-        playIcon.style.display = '';
-        pauseIcon.style.display = 'none';
-      }
-    };
-
-    // When audio ends, reset button to play state
-    audio.onended = function() {
-      playIcon.style.display = '';
-      pauseIcon.style.display = 'none';
-    };
-  } else {
-    document.getElementById('static-buttons').innerHTML = '';
-  }
-}
-
-function updateLogoInvert(index) {
-  const logoImg = document.querySelector('.logo img');
-  if (logoImg) {
-    if ([2, 3, 4].includes(index)) {
-      logoImg.classList.add('invert-logo');
-    } else {
-      logoImg.classList.remove('invert-logo');
-    }
-  }
-}
-
-  const swiper = new Swiper('.swiper', {
-  loop: true,
-  direction: 'vertical',
-  parallax: true,
-  speed: 750,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  keyboard: true,
-  autoplay: {
-    delay: 5000, // Time in ms between slides
-    disableOnInteraction: true // Keep autoplay after user interaction
-  },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  });
-
-
-  // Set initial colors and buttons on load
-  window.addEventListener('DOMContentLoaded', () => {
-    const activeSlide = document.querySelector('.swiper-slide-active');
-    const mainColor = activeSlide.getAttribute('data-main-color') || '#dbdada';
-    const secondaryColor = activeSlide.getAttribute('data-secondary-color') || '#000';
-    document.documentElement.style.setProperty('--main-color', mainColor);
-    document.documentElement.style.setProperty('--secondary-color', secondaryColor);
-    updateButtons(0);
-    updateLogoInvert(0);
-  });
-
-function loadVideoIfNeeded(slide) {
-  const video = slide.querySelector('.bg-video');
-  if (!video) return;
-
-  const source = video.querySelector('source[data-src]');
-  if (source && !source.src) {
-    source.src = source.dataset.src;
-    video.load();
-  }
-}
-
-swiper.on('slideChange', function () {
-  const realIndex = this.realIndex;
-  const activeSlide = this.slides[this.activeIndex];
-
-  // --- 1. Update theme colors ---
-  const mainColor = activeSlide.getAttribute('data-main-color') || '#dbdada';
-  const secondaryColor = activeSlide.getAttribute('data-secondary-color') || '#000';
-  document.documentElement.style.setProperty('--main-color', mainColor);
-  document.documentElement.style.setProperty('--secondary-color', secondaryColor);
-
-  // --- 2. Update buttons ---
-  updateButtons(realIndex);
-
-  // --- 3. Logo animation + invert ---
-  const logoImg = document.querySelector('.logo img');
-  if (logoImg) {
-    logoImg.classList.remove('animate');
-    void logoImg.offsetWidth; // restart CSS animation
-    logoImg.classList.add('animate');
-    if ([2, 3, 4].includes(realIndex)) {
-      logoImg.classList.add('invert-logo');
-    } else {
-      logoImg.classList.remove('invert-logo');
-    }
-  }
-
-  // --- 4. Video control ---
-  document.querySelectorAll('.bg-video').forEach(v => v.pause());
-  const activeVideo = activeSlide.querySelector('.bg-video');
-  if (activeVideo) {
-    loadVideoIfNeeded(activeSlide);
-    activeVideo.play().catch(() => {});
-  }
-
-  // --- 5. Preload next slide video ---
-  const nextIndex = (this.activeIndex + 1) % this.slides.length;
-  loadVideoIfNeeded(this.slides[nextIndex]);
-});
-
-</script>
-</body>
+  <script src="js/data.js"></script> <script src="js/main.js"></script>  </body>
 </html>
-
-
-
