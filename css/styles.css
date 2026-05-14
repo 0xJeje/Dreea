@@ -152,7 +152,7 @@ header {
 
 .swiper-pagination {
     position: absolute !important;
-    left: 2vw !important;
+    right: 1vw !important;
     top: 50% !important;
     transform: translateY(-50%);
     width: auto !important;
